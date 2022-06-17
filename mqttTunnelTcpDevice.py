@@ -83,7 +83,7 @@ except getopt.GetoptError:
     sys.exit(2)
 for opt, arg in opts:
     if opt == '-h':
-        print('mattTunnelTCPClient.py -b <ip_broker> -p <port_of_broker> -d <device_ip_address> -o <device_port> -t <toDeviceTopic>\n')
+        print('mattTunnelTCPDevice.py -b <ip_broker> -p <port_of_broker> -d <device_ip_address> -o <device_port> -t <toDeviceTopic>\n')
         sys.exit()
     elif opt in ("-b", "--broker"):
         brokerAddress = arg

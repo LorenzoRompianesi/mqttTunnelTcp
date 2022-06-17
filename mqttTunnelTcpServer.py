@@ -1,4 +1,4 @@
-import socket,os,random,sys,time,queue
+import socket,os,random,sys,time,queue, getopt
 import paho.mqtt.client as mqtt
 from paho.mqtt.client import Client
 from paho.mqtt.properties import Properties
@@ -14,14 +14,19 @@ start_time = time.time()
 q = queue.Queue()
 globalConnServer = None
 sem = threading.Semaphore()
+brokerAddress='localhost'
+brokerPort=1883
+inputAddress='localhost'
+inputPort='503'
+toDeviceTopic='toDevice'
+fromDeviceTopic='fromDevice'
 
-
-def fromServerToDestination():
+def toDeviceHandler():
     global globalConnServer
     print(str(time.time() - start_time) + ' - receiving thread started\n')  
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.settimeout(60)
-        s.bind(('127.0.0.5', 443))
+        s.bind((inputAddress, inputPort))
         s.listen()
         while True:
             conn, addr = s.accept()
@@ -40,9 +45,9 @@ def fromServerToDestination():
                             #maybe closet connection
                             print(str(time.time() - start_time) + ' - no data server\n')
                             properties = Properties(PacketTypes.PUBLISH)
-                            properties.ResponseTopic = "fromClient"
+                            properties.ResponseTopic = fromDeviceTopic
                             properties.CorrelationData=bytes(idConn.to_bytes(8, 'big'))
-                            client.publish(topic="toClient", payload = None, properties=properties)
+                            client.publish(topic=toDeviceTopic, payload = None, properties=properties)
                             globalConnServer = None
                             break
                     except:
@@ -56,7 +61,7 @@ def fromServerToDestination():
         oldIdConnection = -1
     
     
-def fromDestinationToServer():  
+def fromDeviceHandler():  
     global globalConnServer
     print(str(time.time() - start_time) + ' - sending thread started\n')  
     print(str(time.time() - start_time) + ' - sending socket started\n')
@@ -81,7 +86,33 @@ def fromDestinationToServer():
                 print(str(time.time() - start_time) + ' - error on send data\n')
                 pass
 
-
+try:
+    opts, args = getopt.getopt(sys.argv[1:],"hb:p:a:i:t:f:",["broker=","port=","imputAddress=","inputPort=","toDeviceTopic","fromDeviceTopic"])
+except getopt.GetoptError:
+    print('mattTunnelTCPClient.py -b <ip_broker> -p <port_of_broker> -a <input_ip_address> -i <input_port> -t <toDeviceTopic> -f <fromDeviceTopic>\n')
+    sys.exit(2)
+for opt, arg in opts:
+    if opt == '-h':
+        print('mattTunnelTCPClient.py -b <ip_broker> -p <port_of_broker> -a <input_ip_address> -i <input_port> -t <toDeviceTopic> -f <fromDeviceTopic>\n')
+        sys.exit()
+    elif opt in ("-b", "--broker"):
+        brokerAddress = arg
+    elif opt in ("-p", "--port"):
+        brokerPort = arg
+    elif opt in ("-a", "--inputAddress"):
+        inputAddress = arg
+    elif opt in ("-d", "--inputPort"):
+        inputPort = arg
+    elif opt in ("-t", "--toDeviceTopic"):
+        toDeviceTopic = arg
+    elif opt in ("-t", "--fromDeviceTopic"):
+        fromDeviceTopic = arg
+print('broker address is "', brokerAddress, '"\n')
+print('broker port is "', brokerPort, '"\n')
+print('input address is "', inputAddress, '"\n')
+print('input port is "', inputPort, '"\n')
+print('to device topic is "', toDeviceTopic, '"\n')
+print('from device topic is "', fromDeviceTopic, '"\n')
 
 client = Client(client_id = "client_1", protocol=mqtt.MQTTv5)
 
@@ -98,15 +129,15 @@ def on_message(client, userdata, message):
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("localhost")
-client.subscribe("fromClient")
+client.connect(brokerAddress, port=brokerPort)
+client.subscribe(fromDeviceTopic)
 
 client.loop_start()
-new_thread = Thread(target=fromServerToDestination)
-new_thread2 = Thread(target=fromDestinationToServer)
-new_thread.start()
-new_thread2.start()
-new_thread.join()
+threadToDevice = Thread(target=toDeviceHandler)
+threadFromDevice = Thread(target=fromDeviceHandler)
+threadToDevice.start()
+threadFromDevice.start()
+threadToDevice.join()
 client.loop_stop()
 
 	

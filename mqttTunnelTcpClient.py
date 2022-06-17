@@ -1,4 +1,4 @@
-import socket,os,random,sys,time,queue
+import socket,os,random,sys,time,queue,getopt
 import paho.mqtt.client as mqtt
 from paho.mqtt.client import Client
 from paho.mqtt.properties import Properties
@@ -15,9 +15,14 @@ q = queue.Queue()
 globalConnClient = None
 globalCorrelation = 0
 sem = threading.Semaphore()
+brokerAddress='localhost'
+brokerPort=1883
+deviceAddress='localhost'
+devicePort='502'
+toDeviceTopic='toDevice'
 
 
-def fromServerToDestination():
+def toDeviceHandler():
     global globalConnClient
     global globalCorrelation
     print(str(time.time() - start_time) + ' - receiving thread started\n')  
@@ -39,7 +44,7 @@ def fromServerToDestination():
         properties.CorrelationData=globalCorrelation
         client.publish(topic="fromClient", payload = data, properties=properties)    
     
-def fromDestinationToServer():  
+def fromDeviceHandler():  
     global globalConnClient
     global globalCorrelation
     print(str(time.time() - start_time) + ' - thread send started\n')  
@@ -49,7 +54,7 @@ def fromDestinationToServer():
         if ( globalConnClient == None ):
             sem.acquire()
             s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect(('142.251.209.3', 443))
+            s.connect((deviceAddress, devicePort))
             globalConnClient = s
             sem.release()
             print(str(time.time() - start_time) + ' - sending socket ready\n')
@@ -71,7 +76,30 @@ def fromDestinationToServer():
                 print(str(time.time() - start_time) + ' - error on send data\n')
                 pass
 
-
+try:
+    opts, args = getopt.getopt(sys.argv[1:],"hb:p:d:o:t:",["broker=","port=","deviceAddress=","devicePort=","toDeviceTopic"])
+except getopt.GetoptError:
+    print('mattTunnelTCPClient.py -b <ip_broker> -p <port_of_broker> -d <device_ip_address> -o <device_port> -t <toDeviceTopic>\n')
+    sys.exit(2)
+for opt, arg in opts:
+    if opt == '-h':
+        print('mattTunnelTCPClient.py -b <ip_broker> -p <port_of_broker> -d <device_ip_address> -o <device_port> -t <toDeviceTopic>\n')
+        sys.exit()
+    elif opt in ("-b", "--broker"):
+        brokerAddress = arg
+    elif opt in ("-p", "--port"):
+        brokerPort = arg
+    elif opt in ("-d", "--deviceAddress"):
+        deviceAddress = arg
+    elif opt in ("-o", "--devicePort"):
+        devicePort = arg
+    elif opt in ("-t", "--toDeviceTopic"):
+        toDeviceTopic = arg
+print('broker address is "', brokerAddress, '"\n')
+print('broker port is "', brokerPort, '"\n')
+print('device address is "', deviceAddress, '"\n')
+print('device port is "', devicePort, '"\n')
+print('to device topic is "', toDeviceTopic, '"\n')
 
 client = Client(client_id = "client_2", protocol=mqtt.MQTTv5)
 
@@ -88,15 +116,15 @@ def on_message(client, userdata, message):
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("localhost")
-client.subscribe("toClient")
+client.connect(brokerAddress, port=brokerPort)
+client.subscribe(toDeviceTopic)
 
 client.loop_start()
-new_thread = Thread(target=fromServerToDestination)
-new_thread2 = Thread(target=fromDestinationToServer)
-new_thread.start()
-new_thread2.start()
-new_thread.join()
+threadToDevice = Thread(target=toDeviceHandler)
+threadFromDevice = Thread(target=fromDeviceHandler)
+threadToDevice.start()
+threadFromDevice.start()
+threadToDevice.join()
 client.loop_stop()
 
 	

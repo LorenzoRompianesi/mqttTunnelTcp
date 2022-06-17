@@ -1,1 +1,22 @@
-<mxfile host="app.diagrams.net" modified="2022-06-17T23:36:44.103Z" agent="5.0 (Windows)" version="20.0.1" etag="4HbuW6N4uyXAx5OilOGn" type="github"><diagram id="oelvePmYZkdGCveeSNbR">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-06-17T23:41:47.348Z" agent="5.0 (Windows)" etag="z-s8S7I5a0MDg3cNOpAs" version="20.0.1" type="github">
+  <diagram id="oelvePmYZkdGCveeSNbR" name="Page-1">
+    <mxGraphModel dx="1038" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GN0M2vtTz4O2_e-BDMKb-1" value="&lt;div&gt;Original client&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GN0M2vtTz4O2_e-BDMKb-2" value="Original server" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="374" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GN0M2vtTz4O2_e-BDMKb-3" value="&lt;div&gt;Old insecure TCP protocol&lt;/div&gt;&lt;div&gt;e.g. modbus&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;shape=flexArrow;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GN0M2vtTz4O2_e-BDMKb-1" target="GN0M2vtTz4O2_e-BDMKb-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="320" as="sourcePoint" />
+            <mxPoint x="440" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

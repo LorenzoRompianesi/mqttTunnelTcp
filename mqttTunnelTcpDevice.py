@@ -79,7 +79,7 @@ def fromDeviceHandler():
 try:
     opts, args = getopt.getopt(sys.argv[1:],"hb:p:d:o:t:",["broker=","port=","deviceAddress=","devicePort=","toDeviceTopic"])
 except getopt.GetoptError:
-    print('mattTunnelTCPClient.py -b <ip_broker> -p <port_of_broker> -d <device_ip_address> -o <device_port> -t <toDeviceTopic>\n')
+    print('mattTunnelTCPDevice.py -b <ip_broker> -p <port_of_broker> -d <device_ip_address> -o <device_port> -t <toDeviceTopic>\n')
     sys.exit(2)
 for opt, arg in opts:
     if opt == '-h':

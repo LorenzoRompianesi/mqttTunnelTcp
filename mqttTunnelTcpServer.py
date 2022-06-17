@@ -89,11 +89,11 @@ def fromDeviceHandler():
 try:
     opts, args = getopt.getopt(sys.argv[1:],"hb:p:a:i:t:f:",["broker=","port=","imputAddress=","inputPort=","toDeviceTopic","fromDeviceTopic"])
 except getopt.GetoptError:
-    print('mattTunnelTCPClient.py -b <ip_broker> -p <port_of_broker> -a <input_ip_address> -i <input_port> -t <toDeviceTopic> -f <fromDeviceTopic>\n')
+    print('mattTunnelTCPServer.py -b <ip_broker> -p <port_of_broker> -a <input_ip_address> -i <input_port> -t <toDeviceTopic> -f <fromDeviceTopic>\n')
     sys.exit(2)
 for opt, arg in opts:
     if opt == '-h':
-        print('mattTunnelTCPClient.py -b <ip_broker> -p <port_of_broker> -a <input_ip_address> -i <input_port> -t <toDeviceTopic> -f <fromDeviceTopic>\n')
+        print('mattTunnelTCPServer.py -b <ip_broker> -p <port_of_broker> -a <input_ip_address> -i <input_port> -t <toDeviceTopic> -f <fromDeviceTopic>\n')
         sys.exit()
     elif opt in ("-b", "--broker"):
         brokerAddress = arg

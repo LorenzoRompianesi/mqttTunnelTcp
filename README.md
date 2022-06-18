@@ -14,7 +14,7 @@ There is planty of legacy software that comunicate thru old/insecure/proprietary
 >![oldCommunication](doc/mqttTunnelTcp.svg)
 ><p align="center">original communication</p>
 
-Non the less those protocols lack of some usefull features: security, multi-tenant, isolation, etc.
+Nontheless those protocols lack of some usefull features: security, multi-tenant, isolation, etc.
 We already have a powerfull tool to encapsulate insecure protocols: ssh tcp tunnels but. IMHO, even if this [ssh tunnel] is perfect from a systemystic point of view, in the IOT era, with thousand of devices and many clients needing data/intercation with them, maybe this does not scale very well.
 furthermore the solution of an MQTT TCP Tunnel could be an intermediate step, waiting for everyone to leave the old protocols.
 

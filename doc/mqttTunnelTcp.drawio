@@ -1,22 +1,22 @@
-<mxfile host="app.diagrams.net" modified="2022-06-17T23:41:47.348Z" agent="5.0 (Windows)" etag="z-s8S7I5a0MDg3cNOpAs" version="20.0.1" type="github">
-  <diagram id="oelvePmYZkdGCveeSNbR" name="Page-1">
-    <mxGraphModel dx="1038" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="GN0M2vtTz4O2_e-BDMKb-1" value="&lt;div&gt;Original client&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="80" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="GN0M2vtTz4O2_e-BDMKb-2" value="Original server" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="374" y="40" width="80" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="GN0M2vtTz4O2_e-BDMKb-3" value="&lt;div&gt;Old insecure TCP protocol&lt;/div&gt;&lt;div&gt;e.g. modbus&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;shape=flexArrow;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GN0M2vtTz4O2_e-BDMKb-1" target="GN0M2vtTz4O2_e-BDMKb-2">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="390" y="320" as="sourcePoint" />
-            <mxPoint x="440" y="270" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram id="oelvePmYZkdGCveeSNbR" name="Page-1">
+        <mxGraphModel dx="734" dy="411" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="GN0M2vtTz4O2_e-BDMKb-1" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;Original client&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="GN0M2vtTz4O2_e-BDMKb-2" value="&lt;font style=&quot;font-size: 14px&quot;&gt;Original server&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;glass=0;shadow=1;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="374" y="40" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="GN0M2vtTz4O2_e-BDMKb-3" value="&lt;div&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;Old/insecure TCP protocol&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;e.g. modbus&lt;/font&gt;&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;shape=flexArrow;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#FFFFFF;shadow=1;sketch=1;" parent="1" source="GN0M2vtTz4O2_e-BDMKb-1" target="GN0M2vtTz4O2_e-BDMKb-2" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="390" y="320" as="sourcePoint"/>
+                        <mxPoint x="440" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>

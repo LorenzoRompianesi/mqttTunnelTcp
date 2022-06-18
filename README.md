@@ -14,4 +14,4 @@ Non the less those protocols lack of some usefull features: security, multi-tena
 We already have a powerfull tool: ssh tcp tunnels but. IMHO, even if this [ssh tunnel] is perfect from a systemystic point of view, in the IOT era, with thousand of devices and many clients needing data/intercation with them, maybe this does not scale very well.
 furthermore the solution of an MQTT TCP Tunnel could be an intermediate step, waiting for everyone to leave the old protocols.
 ------------------
-![newCommunication](doc/mqttTunnelTcpAfter.drawio.svg)
+![newCommunication](doc/mqttTunnelTcpAfter.svg)

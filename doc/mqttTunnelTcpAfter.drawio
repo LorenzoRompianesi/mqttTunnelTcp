@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" modified="2022-06-18T00:37:00.147Z" agent="5.0 (Windows)" etag="faOA4Qzh94Dv5LPf9_B6" version="20.0.1" type="github">
+  <diagram id="oelvePmYZkdGCveeSNbR" name="Page-1">
+    <mxGraphModel dx="1038" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GN0M2vtTz4O2_e-BDMKb-1" value="&lt;div&gt;Original client&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GN0M2vtTz4O2_e-BDMKb-2" value="Original server" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="450" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GN0M2vtTz4O2_e-BDMKb-3" value="&lt;div&gt;Old/insecure TCP protocol&lt;/div&gt;&lt;div&gt;e.g. modbus&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;shape=flexArrow;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="GN0M2vtTz4O2_e-BDMKb-1" target="1y3V3sCusoL3s1kWGE4b-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="320" as="sourcePoint" />
+            <mxPoint x="120" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1y3V3sCusoL3s1kWGE4b-1" value="MQTT broker" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="250" y="230" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1y3V3sCusoL3s1kWGE4b-2" value="&lt;div&gt;MqttTunnelTcp&lt;/div&gt;&lt;div&gt;Server&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="40" y="230" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1y3V3sCusoL3s1kWGE4b-3" value="&lt;div&gt;MQTT secure&lt;br&gt;&lt;/div&gt;&lt;div&gt;encapsulated&lt;/div&gt;&lt;div&gt;message&lt;br&gt;&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;shape=flexArrow;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="1y3V3sCusoL3s1kWGE4b-2" target="1y3V3sCusoL3s1kWGE4b-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="90" y="130" as="sourcePoint" />
+            <mxPoint x="90" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1y3V3sCusoL3s1kWGE4b-4" value="&lt;div&gt;MqttTunnelTcp&lt;/div&gt;&lt;div&gt;Device&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="450" y="230" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1y3V3sCusoL3s1kWGE4b-5" value="&lt;div&gt;MQTT secure&lt;br&gt;&lt;/div&gt;&lt;div&gt;encapsulated&lt;/div&gt;&lt;div&gt;message&lt;br&gt;&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;shape=flexArrow;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="1y3V3sCusoL3s1kWGE4b-1" target="1y3V3sCusoL3s1kWGE4b-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="360" as="sourcePoint" />
+            <mxPoint x="450" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1y3V3sCusoL3s1kWGE4b-6" value="&lt;div&gt;Old/insecure TCP protocol&lt;/div&gt;&lt;div&gt;e.g. modbus&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;shape=flexArrow;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="1y3V3sCusoL3s1kWGE4b-4" target="GN0M2vtTz4O2_e-BDMKb-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="90" y="130" as="sourcePoint" />
+            <mxPoint x="90" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
